@@ -264,11 +264,12 @@ section { padding: clamp(64px, 9vw, 120px) 0; }
   font-size: 12px; color: var(--ink); font-weight: 700; }
 
 /* ── method ──────────────────────────────────────────────── */
-.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;
-  counter-reset: s; }
-.step { border-left: 2px solid var(--line-dark); padding: 4px 0 4px 20px; position: relative; counter-increment: s; }
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.step { border-left: 2px solid var(--line-dark); padding: 4px 0 4px 20px; position: relative; }
+/* Purely a rule accent — the "ETAPA 01" label already carries the number, and a
+   CSS counter here rendered a second one on top of it. */
 .step:before {
-  content: counter(s, decimal-leading-zero); position: absolute; left: -2px; top: 4px; width: 2px;
+  content: ''; position: absolute; left: -2px; top: 4px; width: 2px;
   height: 30px; background: var(--yellow);
 }
 .step .c { font-size: 11px; font-weight: 800; color: var(--yellow); letter-spacing: .14em; }
@@ -337,3 +338,66 @@ section { padding: clamp(64px, 9vw, 120px) 0; }
   }
   .mobile-cta .btn { justify-content: center; padding: 13px; font-size: 14px; }
 }
+
+/* ── system datasheet pages ──────────────────────────────
+   Content transcribed from the PDF catalogues the old site buried behind
+   Google Drive links. */
+.sys-page { padding-top: 0; }
+.sys-hero { position: relative; min-height: 74svh; display: flex; align-items: flex-end;
+  background: var(--blue-ink); color: #fff; padding: 130px 0 52px; overflow: hidden; }
+.sys-hero:after {
+  content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(7, 10, 61, .88) 0%, rgba(7, 10, 61, .3) 40%, rgba(7, 10, 61, .92) 100%),
+    linear-gradient(100deg, rgba(7, 10, 61, .9) 18%, rgba(7, 10, 61, .5) 52%, rgba(7, 10, 61, .1) 88%);
+}
+.sys-hero .shell { position: relative; z-index: 2; }
+.sys-hero h1 { font-size: clamp(32px, 4.2vw, 58px); max-width: 14ch; }
+.sys-hero .sub { margin-top: 20px; font-size: clamp(14px, 1.1vw, 17px); color: #C3C9EE;
+  max-width: 62ch; line-height: 1.65; }
+.sys-hero .acts { display: flex; gap: 14px; margin-top: 30px; flex-wrap: wrap; }
+
+.crumb { font-size: 12px; color: var(--mist); margin-bottom: 20px; }
+.crumb a:hover { color: var(--yellow); }
+.crumb span { margin: 0 7px; opacity: .5; }
+.crumb b { color: #fff; }
+
+.ticks { list-style: none; }
+.ticks li { position: relative; padding-left: 26px; margin-bottom: 11px; font-size: 14.5px;
+  line-height: 1.55; color: var(--slate); }
+.ticks li:before { content: '✓'; position: absolute; left: 0; top: 0; color: var(--blue);
+  font-weight: 800; }
+.dark .ticks li { color: #A8AEC8; }
+.dark .ticks li:before { color: var(--yellow); }
+
+.sy-dark { background: rgba(255, 255, 255, .05); border-color: var(--line-dark); }
+.sy-dark .n { color: var(--yellow); }
+.sy-dark .w { color: #A8AEC8; }
+a.sy { display: block; }
+a.sy .for { color: var(--blue); }
+
+/* Thermal proof: two measured readings from the same roof at the same moment. */
+.thermal { margin-top: 40px; border: 1px solid rgba(255, 196, 0, .35); border-radius: var(--r);
+  padding: 28px; background: rgba(255, 196, 0, .05); }
+.th-h { font-size: 10.5px; font-weight: 800; letter-spacing: .16em; color: var(--yellow);
+  margin-bottom: 22px; }
+.th-g { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+.th-c { flex: 1; min-width: 190px; border-radius: 10px; padding: 22px; text-align: center; }
+.th-c.hot { background: linear-gradient(160deg, rgba(217, 45, 32, .3), rgba(217, 45, 32, .08));
+  border: 1px solid rgba(255, 91, 71, .5); }
+.th-c.cold { background: linear-gradient(160deg, rgba(26, 34, 200, .35), rgba(26, 34, 200, .1));
+  border: 1px solid rgba(90, 110, 255, .55); }
+.th-c .t { font-size: clamp(38px, 4.4vw, 60px); font-weight: 800; letter-spacing: -.04em;
+  line-height: 1; }
+.th-c .t span { font-size: .45em; opacity: .65; }
+.th-c.hot .t { color: #FF8577; }
+.th-c.cold .t { color: #8FA0FF; }
+.th-c .l { font-size: 12.5px; color: var(--mist); margin-top: 10px; font-weight: 600; }
+.th-arrow { font-size: 26px; color: var(--yellow); font-weight: 800; }
+.th-n { margin-top: 20px; font-size: 13.5px; color: #A8AEC8; line-height: 1.6; }
+.th-n b { color: var(--yellow); }
+
+.src-note { margin-top: 34px; font-size: 11.5px; color: #6C7396; font-style: italic; }
+@media (max-width: 720px) { .th-arrow { transform: rotate(90deg); align-self: center; } }
+
+.sy .for b { color: var(--blue); }
