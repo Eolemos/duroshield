@@ -27,3 +27,6 @@ npm-debug.log*
 .DS_Store
 Thumbs.db
 *.local
+
+# Recovered media working dir (raw originals stay out of the public repo)
+/.media/

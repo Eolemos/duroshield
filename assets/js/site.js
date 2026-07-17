@@ -2,8 +2,6 @@
    No framework on purpose: the old site shipped 338 KB of HTML and 33 scripts.
    Speed is conversion for a buyer comparing suppliers on a plant floor. */
 
-import * as THREE from './three.module.min.js';
-
 (function () {
   'use strict';
 
@@ -58,32 +56,74 @@ import * as THREE from './three.module.min.js';
     ]},
   ];
 
-  /* Metrics are left explicitly pending rather than invented. An empty case reads as
-     honest; a fabricated number ends the engagement. */
+  /* ── obras gallery ───────────────────────────────────────
+     Every frame is a real Duroshield job, recovered from the company's own media
+     library — none of it had ever been published. */
+  const P = 'assets/img/obras/';
+  const GALLERY = [
+    { f: 'heliponto-concluido', k: 'HELIPONTO · CONCLUÍDO',
+      c: 'Poliureia SPR092 com sinalização executada no próprio acabamento do sistema — sem pintura sobreposta.',
+      alt: 'Heliponto em cobertura revestido em poliureia azul com marcação de sinalização amarela, cidade ao fundo.' },
+    { f: 'bayer-cobertura', k: 'BAYER · COBERTURA',
+      c: 'Linha FLEX aplicada em telha metálica, com equipe própria e EPI completo.',
+      alt: 'Aplicador com macacão, capacete, respirador e cinto de segurança aplicando revestimento branco em telhado metálico.' },
+    { f: 'heineken-bacia-1', k: 'HEINEKEN · IGREJINHA/RS',
+      c: 'Bacia de contenção revestida em SPR092 e testada com lâmina d’água.',
+      alt: 'Bacia de contenção revestida em poliureia cinza, preenchida com água em teste de estanqueidade.' },
+    { f: 'estacionamento-laje', k: 'ESTACIONAMENTO EM LAJE',
+      c: 'Laje de estacionamento revestida e sinalizada, liberada para uso.',
+      alt: 'Laje de estacionamento revestida em poliureia cinza com demarcação amarela e dezenas de carros estacionados.' },
+    { f: 'heineken-bacia-3', k: 'HEINEKEN · DETALHE',
+      c: 'Tratamento de junta e canto vivo — onde a manta tradicional falha primeiro.',
+      alt: 'Detalhe de canto e junta de bacia de contenção revestida em poliureia.' },
+    { f: 'cobertura-fuvest', k: 'COBERTURA INSTITUCIONAL',
+      c: 'Retrofit de cobertura com sistema refletivo, sem interromper a operação do prédio.',
+      alt: 'Cobertura de prédio institucional durante aplicação de revestimento Duroshield.' },
+    { f: 'obra-detalhe', k: 'CALHA E TELHA · DETALHE',
+      c: 'Membrana contínua sobre telha metálica e calha — sem emenda no ponto onde a manta falha primeiro.',
+      alt: 'Detalhe de calha e telha metálica revestidas com membrana contínua branca, sem emendas.' },
+  ];
+
+  /* Case metrics are left explicitly pending rather than invented. An empty slot reads
+     as honest; a fabricated number on a Bayer case ends the engagement. */
   const CASES = [
-    { logo: 'TAK.png', client: 'Takeda Pharma', loc: 'UNIDADE FABRIL',
-      title: 'Membrana contínua em planta farmacêutica',
-      body: 'Sistema de poliureia formando membrana contínua, homogênea e sem emendas, totalmente aderida — evitando percolação de água entre a membrana e o substrato.',
-      metrics: [] },
     { logo: 'heineken.png', client: 'Heineken', loc: 'IGREJINHA / RS',
+      photo: 'heineken-bacia-2',
+      alt: 'Bacia de contenção da Heineken revestida em poliureia Duroshield.',
       title: 'Bacias de contenção de soda cáustica',
       body: 'As bacias de contenção da unidade foram revestidas com a linha SPR092, aplicada sobre a superfície existente — sem interromper o envase.',
       metrics: [] },
-    { logo: 'Bayer-300x243-1.png', client: 'Bayer', loc: 'PLANTA INDUSTRIAL',
+    { logo: 'Bayer-300x243-1.png', client: 'Bayer', loc: 'SÃO JOSÉ DOS CAMPOS / SP',
+      photo: 'bayer-cobertura',
+      alt: 'Equipe Duroshield aplicando revestimento na cobertura da planta da Bayer.',
       title: 'Retrofit e proteção de cobertura',
       body: 'Retrofit aliado à impermeabilização e proteção da cobertura da planta, com o Sistema DUROSHIELD® Flex — refletividade, flexibilidade e estanqueidade.',
       metrics: [] },
-    { logo: 'Unilever.png', client: 'Unilever', loc: 'FORNECEDORA HÁ 5+ ANOS',
-      title: 'Retrofit de impermeabilização em poliureia',
-      body: 'Mais um projeto de retrofit em uma das unidades. Método não destrutivo: revestimento de alto desempenho aplicado sem demolição do sistema existente.',
-      metrics: [{ v: '5+', k: 'anos de fornecimento' }] },
     { logo: 'royal.png', client: 'Royal Palm Plaza', loc: 'CAMPINAS / SP',
+      photo: 'estacionamento-laje',
+      alt: 'Estacionamento em laje revestido e sinalizado.',
       title: 'Estacionamento revestido em poliureia',
       body: 'Toda a área do estacionamento de veículos do hotel recebeu revestimento e impermeabilização pelos sistemas de poliureia DUROSHIELD®.',
       metrics: [{ v: '~3.000', k: 'm² aplicados' }, { v: '0', k: 'dias de operação parada' }] },
-    { logo: 'ABB.png', client: 'ABB', loc: 'UNIDADE INDUSTRIAL',
-      title: 'Impermeabilização de alto desempenho',
-      body: 'Projeto executado com os sistemas Duroshield de revestimento e impermeabilização de alto desempenho.',
+    { logo: 'TAK.png', client: 'Takeda Pharma', loc: 'UNIDADE FABRIL',
+      photo: 'aplicacao-planta-operacao',
+      alt: 'Aplicação de poliureia em torno de tubulação industrial em operação.',
+      title: 'Membrana contínua em planta farmacêutica',
+      body: 'Poliureia formando membrana contínua, homogênea e sem emendas, totalmente aderida — evitando percolação de água entre a membrana e o substrato.',
+      metrics: [] },
+    { logo: 'Unilever.png', client: 'Unilever', loc: 'FORNECEDORA HÁ 5+ ANOS',
+      photo: 'hidrojateamento',
+      alt: 'Preparo de substrato por hidrojateamento antes da aplicação.',
+      title: 'Retrofit de impermeabilização em poliureia',
+      body: 'Método não destrutivo: preparo por hidrojateamento e revestimento de alto desempenho aplicado sem demolição do sistema existente.',
+      metrics: [{ v: '5+', k: 'anos de fornecimento' }] },
+    // No client logo here: the source material never names whose heliponto this is,
+    // and attributing a job to the wrong client is not a risk worth taking.
+    { logo: null, client: 'Heliponto', loc: 'COBERTURA / SP',
+      photo: 'heliponto-concluido',
+      alt: 'Heliponto concluído em poliureia azul com sinalização amarela.',
+      title: 'Heliponto: impermeabilização e sinalização',
+      body: 'Área exposta a intempéries e à frequência de pousos e decolagens. A sinalização foi executada no acabamento do próprio sistema, sem camada adicional.',
       metrics: [] },
   ];
 
@@ -134,6 +174,19 @@ import * as THREE from './three.module.min.js';
     SECTORS.forEach((s) => mk(s.id, s.name));
   }
 
+  /* ── obras gallery ─────────────────────────────────────── */
+  const gal = $('#gal');
+  if (gal) GALLERY.forEach((g) => {
+    const fig = el('figure');
+    fig.innerHTML =
+      '<picture>' +
+        '<source media="(max-width:720px)" srcset="' + P + g.f + '@800.webp">' +
+        '<img src="' + P + g.f + '.webp" alt="' + g.alt + '" loading="lazy">' +
+      '</picture>' +
+      '<figcaption><b>' + g.k + '</b>' + g.c + '</figcaption>';
+    gal.appendChild(fig);
+  });
+
   /* ── cases ─────────────────────────────────────────────── */
   const cases = $('#cases');
   if (cases) CASES.forEach((c) => {
@@ -142,7 +195,11 @@ import * as THREE from './three.module.min.js';
       ? c.metrics.map((m) => '<div><div class="v">' + m.v + '</div><div class="k">' + m.k + '</div></div>').join('')
       : '<span class="pending">Números do projeto em levantamento</span>';
     a.innerHTML =
-      '<div class="case-h"><img src="' + L + c.logo + '" alt="' + c.client + '" loading="lazy">' +
+      '<div class="case-im"><img src="' + P + c.photo + '@800.webp" alt="' + c.alt + '" loading="lazy"></div>' +
+      '<div class="case-h">' +
+        (c.logo
+          ? '<span class="plate"><img src="' + L + c.logo + '" alt="' + c.client + '" loading="lazy"></span>'
+          : '<span class="plate plate-txt">' + c.client + '</span>') +
         '<span class="loc">' + c.loc + '</span></div>' +
       '<div class="case-b"><h4>' + c.title + '</h4><p>' + c.body + '</p></div>' +
       '<div class="case-m">' + metrics + '</div>';
@@ -206,81 +263,4 @@ import * as THREE from './three.module.min.js';
     open('https://wa.me/5511941341776?text=' + msg, '_blank', 'noopener');
   });
 
-  /* ── hero membrane (WebGL) ─────────────────────────────── */
-  const cv = $('#membrane');
-  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (cv && !reduced) {
-    const T = THREE;
-    const renderer = new T.WebGLRenderer({ canvas: cv, antialias: true, alpha: true });
-    renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
-    const scene = new T.Scene();
-    const cam = new T.PerspectiveCamera(50, 1, .1, 200);
-    cam.position.set(0, 1, 24);
-
-    scene.add(new T.AmbientLight(0x8899ff, 1.1));
-    const k = new T.DirectionalLight(0xffc400, 2.6); k.position.set(8, 11, 14); scene.add(k);
-    const r2 = new T.DirectionalLight(0x2a35ff, 2.2); r2.position.set(-11, -6, 8); scene.add(r2);
-
-    // One continuous elastic sheet — the product argument, shown rather than claimed.
-    const geo = new T.PlaneGeometry(62, 38, 84, 52);
-    const base = geo.attributes.position.array.slice();
-    const sheet = new T.Mesh(geo, new T.MeshStandardMaterial({
-      color: 0x1a22c8, roughness: .3, metalness: .75,
-      transparent: true, opacity: .62, side: T.DoubleSide,
-    }));
-    sheet.rotation.x = -Math.PI / 2.5; sheet.position.y = -6; scene.add(sheet);
-
-    const wire = new T.Mesh(new T.PlaneGeometry(62, 38, 40, 26), new T.MeshBasicMaterial({
-      color: 0x4d5aff, wireframe: true, transparent: true, opacity: .18,
-    }));
-    wire.rotation.x = -Math.PI / 2.5; wire.position.y = -5.9; scene.add(wire);
-
-    const N = 700, p = new Float32Array(N * 3);
-    for (let i = 0; i < N; i++) {
-      p[i * 3] = (Math.random() - .5) * 120;
-      p[i * 3 + 1] = (Math.random() - .5) * 70;
-      p[i * 3 + 2] = (Math.random() - .5) * 60;
-    }
-    const dust = new T.Points(
-      new T.BufferGeometry().setAttribute('position', new T.BufferAttribute(p, 3)),
-      new T.PointsMaterial({ color: 0xffc400, size: .12, transparent: true, opacity: .45 })
-    );
-    scene.add(dust);
-
-    function size() {
-      const w = cv.clientWidth || innerWidth, h = cv.clientHeight || innerHeight;
-      renderer.setSize(w, h, false); cam.aspect = w / h; cam.updateProjectionMatrix();
-    }
-    addEventListener('resize', size); size();
-
-    const m = { x: 0, y: 0 };
-    addEventListener('pointermove', (e) => {
-      m.x = (e.clientX / innerWidth - .5) * 2; m.y = (e.clientY / innerHeight - .5) * 2;
-    }, { passive: true });
-
-    // The hero canvas is the only always-on animation; pausing it offscreen keeps
-    // the rest of the page cheap to scroll.
-    let live = true;
-    new IntersectionObserver((es) => { live = es[0].isIntersecting; }).observe(cv);
-
-    const clock = new T.Clock();
-    const tgt = new T.Vector3();
-    (function tick() {
-      requestAnimationFrame(tick);
-      if (!live) return;
-      const t = clock.getElapsedTime();
-      const pos = geo.attributes.position.array;
-      for (let i = 0; i < pos.length; i += 3) {
-        const x = base[i], y = base[i + 1];
-        pos[i + 2] = Math.sin(x * .16 + t * .7) * 1.5
-                   + Math.cos(y * .2 - t * .5) * 1.15
-                   + Math.sin((x + y) * .09 + t * .32) * .85;
-      }
-      geo.attributes.position.needsUpdate = true; geo.computeVertexNormals();
-      dust.rotation.y = t * .015;
-      tgt.set(m.x * 2.2, 1 - m.y * 1.5, 24);
-      cam.position.lerp(tgt, .04); cam.lookAt(0, -3, 0);
-      renderer.render(scene, cam);
-    })();
-  }
 })();
