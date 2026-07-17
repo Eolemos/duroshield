@@ -75,8 +75,11 @@
   <!-- The hero photo is the argument: a Duroshield applicator spraying polyurea
        around live, insulated process piping. The plant kept running. -->
   <picture class="hero-photo">
-    <source media="(max-width:720px)" srcset="assets/img/obras/aplicacao-planta-operacao@800.webp">
-    <img src="assets/img/obras/aplicacao-planta-operacao.webp" fetchpriority="high"
+    <img src="assets/img/obras/aplicacao-planta-operacao.webp"
+         srcset="assets/img/obras/aplicacao-planta-operacao@800.webp 800w,
+                 assets/img/obras/aplicacao-planta-operacao@1200.webp 1200w,
+                 assets/img/obras/aplicacao-planta-operacao.webp 1280w"
+         sizes="100vw" fetchpriority="high" decoding="async"
          alt="Aplicador da Duroshield em macacão e respirador aplicando poliureia a spray
               em torno de tubulação industrial isolada, com a planta em operação.">
   </picture>
@@ -128,6 +131,7 @@
         existente. A membrana cura em minutos e a área é liberada no mesmo turno.</p>
     </div>
     <div class="rv" data-d="2">
+      <div class="cmp-wrap">
       <table class="cmp">
         <thead><tr><th></th><th>Manta asfáltica</th><th class="us">Duroshield poliureia</th></tr></thead>
         <tbody>
@@ -141,6 +145,7 @@
             <td class="win">325% de alongamento</td></tr>
         </tbody>
       </table>
+      </div>
     </div>
   </div>
 </section>
@@ -277,9 +282,9 @@
         Diagnóstico técnico sem custo. Um engenheiro avalia sua estrutura e apresenta
         o sistema, o cronograma e o prazo de garantia — por escrito.</p>
       <div class="direct rv" data-d="3">
-        <a href="https://wa.me/5511941341776"><strong>WhatsApp</strong> (11) 94134-1776</a>
-        <a href="tel:+551131038300"><strong>Telefone</strong> (11) 3103-8300</a>
-        <a href="mailto:projeto@duroshield.com.br"><strong>E-mail</strong> projeto@duroshield.com.br</a>
+        <a href="https://wa.me/5511941341776" target="_blank" rel="noopener"><strong>WhatsApp</strong> (11) 94134-1776</a>
+        <a href="https://wa.me/5511941341776" target="_blank" rel="noopener"><strong>Telefone</strong> (11) 3103-8300</a>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=projeto@duroshield.com.br&su=Solicita%C3%A7%C3%A3o%20de%20diagn%C3%B3stico%20t%C3%A9cnico" target="_blank" rel="noopener"><strong>E-mail</strong> projeto@duroshield.com.br</a>
       </div>
     </div>
 
@@ -337,9 +342,9 @@
       <div>
         <h5>CONTATO</h5>
         <ul>
-          <li><a href="tel:+551131038300">(11) 3103-8300</a></li>
-          <li><a href="https://wa.me/5511941341776">(11) 94134-1776</a></li>
-          <li><a href="mailto:projeto@duroshield.com.br">projeto@duroshield.com.br</a></li>
+          <li><a href="https://wa.me/5511941341776" target="_blank" rel="noopener">(11) 3103-8300</a></li>
+          <li><a href="https://wa.me/5511941341776" target="_blank" rel="noopener">(11) 94134-1776</a></li>
+          <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=projeto@duroshield.com.br&su=Solicita%C3%A7%C3%A3o%20de%20diagn%C3%B3stico%20t%C3%A9cnico" target="_blank" rel="noopener">projeto@duroshield.com.br</a></li>
           <li><a href="#portfolio">Portfólio</a></li>
         </ul>
       </div>
@@ -352,8 +357,7 @@
 </footer>
 
 <div class="mobile-cta">
-  <a class="btn btn-primary" href="#contato">Diagnóstico</a>
-  <a class="btn btn-wa" href="https://wa.me/5511941341776">WhatsApp</a>
+  <a class="btn btn-primary" href="#contato">Solicitar diagnóstico técnico</a>
 </div>
 
 <script src="assets/js/site.js" defer></script>

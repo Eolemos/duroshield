@@ -179,10 +179,9 @@
   if (gal) GALLERY.forEach((g) => {
     const fig = el('figure');
     fig.innerHTML =
-      '<picture>' +
-        '<source media="(max-width:720px)" srcset="' + P + g.f + '@800.webp">' +
-        '<img src="' + P + g.f + '.webp" alt="' + g.alt + '" loading="lazy">' +
-      '</picture>' +
+      '<img src="' + P + g.f + '@800.webp" alt="' + g.alt + '" loading="lazy" decoding="async"' +
+        ' srcset="' + P + g.f + '@800.webp 800w, ' + P + g.f + '@1200.webp 1200w"' +
+        ' sizes="(max-width:900px) 100vw, 50vw">' +
       '<figcaption><b>' + g.k + '</b>' + g.c + '</figcaption>';
     gal.appendChild(fig);
   });
@@ -195,7 +194,10 @@
       ? c.metrics.map((m) => '<div><div class="v">' + m.v + '</div><div class="k">' + m.k + '</div></div>').join('')
       : '<span class="pending">Números do projeto em levantamento</span>';
     a.innerHTML =
-      '<div class="case-im"><img src="' + P + c.photo + '@800.webp" alt="' + c.alt + '" loading="lazy"></div>' +
+      '<div class="case-im"><img src="' + P + c.photo + '@800.webp" alt="' + c.alt + '"' +
+        ' loading="lazy" decoding="async"' +
+        ' srcset="' + P + c.photo + '@800.webp 800w, ' + P + c.photo + '@1200.webp 1200w"' +
+        ' sizes="(max-width:640px) 100vw, 33vw"></div>' +
       '<div class="case-h">' +
         (c.logo
           ? '<span class="plate"><img src="' + L + c.logo + '" alt="' + c.client + '" loading="lazy"></span>'
