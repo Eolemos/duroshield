@@ -1,0 +1,29 @@
+# This repo is PUBLIC. Everything below stays local on purpose.
+
+# Client-facing pitch material: contains direct criticism of the client's current
+# site. Public exposure under the Duroshield name would damage the engagement.
+/output/
+/analysis/
+/scripts/build_presentation.js
+/scripts/verify_presentation.js
+/scripts/build_deck.js
+/scripts/preview_deck.js
+/scripts/check_print.js
+
+# Full mirror of the client's live site, including ~80 third-party client logos
+# (Petrobras, Bayer, Coca-Cola, Itaú...) whose usage rights are unconfirmed.
+# Republishing them here would be distribution, not backup.
+/site-mirror/
+
+# Competitor research tooling and captures.
+/scripts/shoot_competitors.js
+/scripts/mirror_site.py
+/scripts/extract_copy.py
+/scripts/tech_audit.py
+
+# Deps and noise
+node_modules/
+npm-debug.log*
+.DS_Store
+Thumbs.db
+*.local
