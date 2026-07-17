@@ -491,3 +491,37 @@ a.sy .for { color: var(--blue); }
    every sibling with it, past the viewport. */
 .grid2 > *, .split > *, .stats > *, .cases > *, .sys > *, .road > * { min-width: 0; }
 .cmp-wrap { max-width: 100%; }
+
+/* ── 3D membrane section ─────────────────────────────────
+   The polyurea rendered live via WebGL. Text sits over the lower third where the
+   gradient guarantees contrast even while the surface moves. */
+.membrane-3d { position: relative; background: var(--blue-ink); color: #fff;
+  min-height: 92svh; display: flex; align-items: flex-end; overflow: hidden;
+  padding: clamp(80px, 12vw, 150px) 0 clamp(56px, 7vw, 92px); }
+#membrane-canvas { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%;
+  display: block; }
+/* Left-weighted wash so the copy keeps contrast while the membrane on the right
+   stays fully visible. */
+.membrane-3d:after { content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(7,10,61,.55) 0%, rgba(7,10,61,0) 26%, rgba(7,10,61,0) 74%, rgba(7,10,61,.7) 100%),
+    linear-gradient(90deg, rgba(7,10,61,.82) 30%, rgba(7,10,61,.12) 62%, rgba(7,10,61,0) 100%); }
+.membrane-3d .shell { position: relative; z-index: 2; }
+.membrane-3d h2 { font-size: clamp(28px, 4vw, 52px); max-width: 16ch; }
+.membrane-3d .lead { margin-top: 18px; max-width: 56ch; }
+.membrane-3d .btn { margin-top: 30px; }
+/* If WebGL fails, the section still reads as a designed dark panel. */
+.membrane-3d.no-gl { min-height: auto; padding-block: clamp(56px, 8vw, 96px);
+  background: radial-gradient(120% 90% at 80% 10%, rgba(26,34,200,.4), var(--blue-ink) 60%); }
+.membrane-3d.no-gl #membrane-canvas { display: none; }
+
+.m-stats { display: flex; gap: clamp(24px, 4vw, 52px); margin-top: 30px; flex-wrap: wrap; }
+.m-stats .v { font-size: clamp(30px, 3.4vw, 46px); font-weight: 800; color: var(--yellow);
+  letter-spacing: -.04em; line-height: 1; }
+.m-stats .k { font-size: 12.5px; color: var(--mist); margin-top: 8px; max-width: 16ch; line-height: 1.4; }
+
+/* ── pointer 3D tilt ─────────────────────────────────────
+   Cheap depth (CSS transforms, no WebGL) applied to portfolio and system cards.
+   JS adds .tilt only on fine pointers, so touch and reduced-motion never get it. */
+.tilt { transition: transform .25s var(--ease); transform-style: preserve-3d; will-change: transform; }
+.tilt-wrap { perspective: 900px; }

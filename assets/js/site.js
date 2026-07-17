@@ -242,6 +242,26 @@
   }, { threshold: .6 });
   document.querySelectorAll('[data-count]').forEach((n) => cio.observe(n));
 
+  /* ── pointer 3D tilt ───────────────────────────────────
+     Adds real depth on hover for mouse users. Skipped entirely on touch and
+     reduced-motion, where it would only jitter. */
+  const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (fine && !calm) {
+    document.querySelectorAll('.gal figure, #sistemas .sy, .case').forEach((card) => {
+      card.classList.add('tilt');
+      card.parentElement.classList.add('tilt-wrap');
+      card.addEventListener('pointermove', (e) => {
+        const r = card.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width - 0.5;
+        const py = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transform =
+          `rotateY(${px * 6}deg) rotateX(${-py * 6}deg) translateY(-6px)`;
+      });
+      card.addEventListener('pointerleave', () => { card.style.transform = ''; });
+    });
+  }
+
   /* ── form ──────────────────────────────────────────────── */
   const form = $('#form');
   if (form) form.addEventListener('submit', (e) => {
