@@ -70,6 +70,10 @@
      The 3D membrane stands in for the jobsite photo the company does not yet have,
      and shows the product doing the one thing that sells it: moving with the
      substrate without breaking. -->
+<div id="scroll3d" aria-hidden="true">
+  <canvas></canvas>
+  <div class="s3d-label"></div>
+</div>
 <main id="topo">
 <section class="hero">
   <!-- The hero photo is the argument: a Duroshield applicator spraying polyurea
@@ -151,21 +155,38 @@
         O sistema Duroshield é aplicado <strong style="color:#fff">sobre</strong> a estrutura
         existente. A membrana cura em minutos e a área é liberada no mesmo turno.</p>
     </div>
-    <div class="rv" data-d="2">
-      <div class="cmp-wrap">
-      <table class="cmp">
-        <thead><tr><th></th><th>Manta asfáltica</th><th class="us">Duroshield poliureia</th></tr></thead>
-        <tbody>
-          <tr><td>Preparo</td><td>Demolir e remover o sistema antigo</td>
-            <td class="win">Aplica sobre o existente</td></tr>
-          <tr><td>Parada de produção</td><td>Dias</td><td class="win">Nenhuma</td></tr>
-          <tr><td>Emendas</td><td>Sim — todo ponto é risco</td>
-            <td class="win">Membrana contínua, sem emenda</td></tr>
-          <tr><td>Liberação</td><td>Aguarda cura</td><td class="win">Mesmo turno</td></tr>
-          <tr><td>Trinca e junta</td><td>Rígida, trinca junto</td>
-            <td class="win">325% de alongamento</td></tr>
-        </tbody>
-      </table>
+    <!-- Not a <table>: a 3-column grid that restacks into readable comparison
+         cards on mobile, instead of a table that scrolls its winning column off. -->
+    <div class="cmp2 rv" data-d="2" role="table" aria-label="Manta asfáltica versus Duroshield poliureia">
+      <div class="cmp2-head" role="row">
+        <span role="columnheader"></span>
+        <span role="columnheader">Manta asfáltica</span>
+        <span class="us" role="columnheader">Duroshield poliureia</span>
+      </div>
+      <div class="cmp2-row" role="row">
+        <div class="cmp2-k" role="rowheader">Preparo</div>
+        <div class="cmp2-old" role="cell"><b>Manta</b>Demolir e remover o sistema antigo</div>
+        <div class="cmp2-new" role="cell"><b>Duroshield</b>Aplica sobre o existente</div>
+      </div>
+      <div class="cmp2-row" role="row">
+        <div class="cmp2-k" role="rowheader">Parada de produção</div>
+        <div class="cmp2-old" role="cell"><b>Manta</b>Dias</div>
+        <div class="cmp2-new" role="cell"><b>Duroshield</b>Nenhuma</div>
+      </div>
+      <div class="cmp2-row" role="row">
+        <div class="cmp2-k" role="rowheader">Emendas</div>
+        <div class="cmp2-old" role="cell"><b>Manta</b>Sim — todo ponto é risco</div>
+        <div class="cmp2-new" role="cell"><b>Duroshield</b>Membrana contínua, sem emenda</div>
+      </div>
+      <div class="cmp2-row" role="row">
+        <div class="cmp2-k" role="rowheader">Liberação</div>
+        <div class="cmp2-old" role="cell"><b>Manta</b>Aguarda cura</div>
+        <div class="cmp2-new" role="cell"><b>Duroshield</b>Mesmo turno</div>
+      </div>
+      <div class="cmp2-row" role="row">
+        <div class="cmp2-k" role="rowheader">Trinca e junta</div>
+        <div class="cmp2-old" role="cell"><b>Manta</b>Rígida, trinca junto</div>
+        <div class="cmp2-new" role="cell"><b>Duroshield</b>325% de alongamento</div>
       </div>
     </div>
   </div>
@@ -383,5 +404,6 @@
 
 <script src="assets/js/site.js" defer></script>
 <script type="module" src="assets/js/membrane3d.js"></script>
+<script type="module" src="assets/js/scroll3d.js"></script>
 </body>
 </html>

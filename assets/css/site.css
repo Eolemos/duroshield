@@ -525,3 +525,58 @@ a.sy .for { color: var(--blue); }
    JS adds .tilt only on fine pointers, so touch and reduced-motion never get it. */
 .tilt { transition: transform .25s var(--ease); transform-style: preserve-3d; will-change: transform; }
 .tilt-wrap { perspective: 900px; }
+
+/* ── comparison (restacks instead of scrolling) ──────────── */
+.cmp2 { display: grid; gap: 1px; background: var(--line-dark); border: 1px solid var(--line-dark);
+  border-radius: var(--r); overflow: hidden; }
+.cmp2-head, .cmp2-row { display: grid; grid-template-columns: 1.1fr 1.2fr 1.4fr; gap: 1px;
+  background: var(--line-dark); }
+.cmp2-head > *, .cmp2-row > * { background: var(--blue-ink); padding: 13px 15px; }
+.cmp2-head { font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--mist);
+  font-weight: 800; }
+.cmp2-head .us { color: var(--yellow); }
+.cmp2-k { font-weight: 700; color: #fff; font-size: 14px; display: flex; align-items: center; }
+.cmp2-old, .cmp2-new { font-size: 13.5px; color: #A8AEC8; display: flex; align-items: center; }
+.cmp2-new { color: var(--yellow); font-weight: 700; }
+.cmp2-old b, .cmp2-new b { display: none; } /* the label only appears once stacked */
+
+@media (max-width: 640px) {
+  .cmp2-head { display: none; }
+  .cmp2-row { grid-template-columns: 1fr; gap: 0; }
+  .cmp2-row > * { padding: 12px 15px; border-bottom: 1px solid var(--line-dark); }
+  .cmp2-k { background: rgba(255,255,255,.04); font-size: 13px; letter-spacing: .04em;
+    text-transform: uppercase; color: var(--yellow); }
+  .cmp2-old b, .cmp2-new b { display: inline-block; min-width: 88px; font-size: 10.5px;
+    letter-spacing: .08em; text-transform: uppercase; color: var(--mist); font-weight: 800; }
+  .cmp2-new b { color: rgba(255,196,0,.7); }
+  .cmp2-row > *:last-child { border-bottom: 0; }
+}
+
+/* ── footer tidy on phones ──────────────────────────────── */
+@media (max-width: 900px) {
+  .ftr-top { gap: 24px; }
+  .ftr h5 { margin-bottom: 8px; }
+  .ftr li a { min-height: 40px; }
+  .ftr-sig { margin-top: 10px; }
+}
+
+/* ── scroll-driven foreground droplet ────────────────────
+   Sits above the page (z-index over content) but never intercepts input, so it
+   ornaments without ever blocking a tap or a link. */
+#scroll3d { position: fixed; z-index: 30; pointer-events: none;
+  right: clamp(-30px, 1vw, 40px); bottom: clamp(-20px, 4vh, 60px);
+  width: clamp(180px, 26vw, 340px); height: clamp(180px, 26vw, 340px);
+  filter: drop-shadow(0 24px 60px rgba(26, 34, 200, .45)); }
+#scroll3d canvas { width: 100%; height: 100%; display: block; }
+.s3d-label { position: absolute; left: 50%; bottom: 4px; transform: translateX(-50%);
+  white-space: nowrap; font-size: 9.5px; font-weight: 800; letter-spacing: .16em;
+  color: var(--yellow); background: rgba(7, 10, 61, .8); padding: 4px 10px; border-radius: 100px;
+  border: 1px solid rgba(255, 196, 0, .3); backdrop-filter: blur(6px); }
+
+/* Phones: smaller, tucked into the corner, label hidden so it never covers copy. */
+@media (max-width: 720px) {
+  #scroll3d { width: clamp(120px, 34vw, 160px); height: clamp(120px, 34vw, 160px);
+    right: -8px; bottom: 64px; opacity: .92; }
+  .s3d-label { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { #scroll3d { display: none; } }
