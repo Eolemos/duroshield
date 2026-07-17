@@ -172,18 +172,14 @@ section { padding: clamp(64px, 9vw, 120px) 0; }
   html { scroll-behavior: auto; }
 }
 
-/* ── problem / compare ───────────────────────────────────── */
+/* ── section tones ───────────────────────────────────────
+   Light-dominant theme: most sections are white or a soft wash, with dark bands
+   reserved for the hero, the 3D membrane, contact and footer. Light backgrounds
+   read as cleaner and convert better for industrial B2B. */
 .dark { background: var(--ink); color: #fff; }
 .dark .lead { color: #A8AEC8; }
+.soft { background: var(--wash); color: var(--ink); }
 .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 4vw, 64px); align-items: center; }
-.cmp { width: 100%; border-collapse: collapse; }
-.cmp th { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; text-align: left;
-  padding: 12px 14px; color: var(--mist); border-bottom: 2px solid var(--line-dark); }
-.cmp th.us { color: var(--yellow); }
-.cmp td { padding: 14px; border-bottom: 1px solid rgba(255, 255, 255, .08); font-size: 14.5px;
-  color: #A8AEC8; }
-.cmp td:first-child { color: #fff; font-weight: 700; }
-.cmp .win { color: var(--yellow); font-weight: 800; }
 
 /* ── unique responsibility ───────────────────────────────── */
 .split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 4vw, 60px); align-items: center; }
@@ -200,52 +196,51 @@ section { padding: clamp(64px, 9vw, 120px) 0; }
 /* ── portfolio ───────────────────────────────────────────── */
 .sectors { display: flex; gap: 9px; flex-wrap: wrap; margin: 30px 0 26px; }
 .chip {
-  border: 1px solid var(--line-dark); background: rgba(255, 255, 255, .04); color: #B8BEDC;
+  border: 1px solid var(--line); background: var(--paper); color: var(--slate);
   font-size: 12.5px; font-weight: 700; padding: 9px 16px; border-radius: 100px; cursor: pointer;
   transition: .25s;
 }
-.chip:hover { border-color: var(--yellow); color: #fff; }
-.chip.on { background: var(--yellow); border-color: var(--yellow); color: var(--ink); }
+.chip:hover { border-color: var(--blue); color: var(--blue); }
+.chip.on { background: var(--blue); border-color: var(--blue); color: #fff; }
 .wall { display: grid; grid-template-columns: repeat(auto-fill, minmax(128px, 1fr)); gap: 10px; }
 .wall span {
   aspect-ratio: 5 / 3; display: flex; align-items: center; justify-content: center; padding: 14px;
-  background: rgba(255, 255, 255, .95); border-radius: 10px;
-  transition: transform .45s var(--ease), box-shadow .45s var(--ease), opacity .3s;
+  background: var(--paper); border: 1px solid var(--line); border-radius: 10px;
+  transition: transform .45s var(--ease), box-shadow .45s var(--ease), border-color .3s;
 }
-.wall span:hover { transform: translateY(-6px) scale(1.04); box-shadow: 0 16px 40px rgba(255, 196, 0, .26); }
+.wall span:hover { transform: translateY(-6px) scale(1.04); box-shadow: 0 16px 40px rgba(26, 34, 200, .16);
+  border-color: var(--blue); }
 .wall span[hidden] { display: none; }
-.wall img { max-height: 100%; width: auto; filter: grayscale(1); opacity: .75; transition: .3s; }
+.wall img { max-height: 100%; width: auto; filter: grayscale(1); opacity: .72; transition: .3s; }
 .wall span:hover img { filter: none; opacity: 1; }
 
 /* ── cases ───────────────────────────────────────────────── */
 .cases { display: grid; grid-template-columns: repeat(auto-fit, minmax(288px, 1fr)); gap: 18px; }
 .case {
-  border: 1px solid var(--line-dark); border-radius: var(--r); overflow: hidden;
-  background: linear-gradient(165deg, rgba(255, 255, 255, .07), rgba(255, 255, 255, .015));
-  display: flex; flex-direction: column; transition: transform .45s var(--ease), border-color .3s;
+  border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; background: var(--paper);
+  display: flex; flex-direction: column; transition: transform .45s var(--ease), box-shadow .3s, border-color .3s;
 }
-.case:hover { transform: translateY(-6px); border-color: rgba(255, 196, 0, .45); }
-.case-im { aspect-ratio: 16 / 10; overflow: hidden; border-bottom: 1px solid var(--line-dark); }
+.case:hover { transform: translateY(-6px); border-color: var(--blue);
+  box-shadow: 0 18px 46px rgba(10, 12, 27, .12); }
+.case-im { aspect-ratio: 16 / 10; overflow: hidden; border-bottom: 1px solid var(--line); }
 .case-im img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.1s var(--ease); }
 .case:hover .case-im img { transform: scale(1.07); }
 .case-h { padding: 16px 20px 0; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
-/* Client logos ship baked onto white, so a knockout leaves a white block —
-   a light plate is the only treatment that keeps every mark legible. */
-.case-h .plate { background: rgba(255, 255, 255, .93); border-radius: 6px; padding: 6px 10px;
-  display: flex; align-items: center; height: 32px; }
+.case-h .plate { background: var(--wash); border: 1px solid var(--line); border-radius: 6px;
+  padding: 6px 10px; display: flex; align-items: center; height: 34px; }
 .case-h .plate img { max-height: 100%; width: auto; filter: grayscale(1); opacity: .85; }
 .case-h .plate-txt { font-size: 11px; font-weight: 800; color: var(--ink);
   letter-spacing: .06em; text-transform: uppercase; }
-.case .loc { font-size: 10.5px; letter-spacing: .1em; color: var(--mist); font-weight: 700;
+.case .loc { font-size: 10.5px; letter-spacing: .1em; color: var(--slate); font-weight: 700;
   text-align: right; }
 .case-b { padding: 16px 20px 20px; flex: 1; }
 .case-b h4 { font-size: 15px; margin-bottom: 8px; }
-.case-b p { font-size: 13px; color: #A0A7C8; line-height: 1.55; }
-.case-m { display: flex; gap: 20px; padding: 14px 20px; border-top: 1px solid var(--line-dark);
-  background: rgba(0, 0, 0, .22); }
-.case-m div .v { font-size: 19px; font-weight: 800; color: var(--yellow); line-height: 1; }
-.case-m div .k { font-size: 9.5px; color: var(--mist); letter-spacing: .06em; margin-top: 4px; }
-.case-m .pending { color: #6C7396; font-style: italic; font-weight: 600; font-size: 12px; }
+.case-b p { font-size: 13px; color: var(--slate); line-height: 1.55; }
+.case-m { display: flex; gap: 20px; padding: 14px 20px; border-top: 1px solid var(--line);
+  background: var(--wash); }
+.case-m div .v { font-size: 19px; font-weight: 800; color: var(--blue); line-height: 1; }
+.case-m div .k { font-size: 9.5px; color: var(--slate); letter-spacing: .06em; margin-top: 4px; }
+.case-m .pending { color: #8A90A6; font-style: italic; font-weight: 600; font-size: 12px; }
 
 /* ── systems ─────────────────────────────────────────────── */
 .sys { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; }
@@ -265,22 +260,26 @@ section { padding: clamp(64px, 9vw, 120px) 0; }
 
 /* ── method ──────────────────────────────────────────────── */
 .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
-.step { border-left: 2px solid var(--line-dark); padding: 4px 0 4px 20px; position: relative; }
+.step { border-left: 2px solid var(--line); padding: 4px 0 4px 20px; position: relative; }
 /* Purely a rule accent — the "ETAPA 01" label already carries the number, and a
    CSS counter here rendered a second one on top of it. */
 .step:before {
   content: ''; position: absolute; left: -2px; top: 4px; width: 2px;
   height: 30px; background: var(--yellow);
 }
-.step .c { font-size: 11px; font-weight: 800; color: var(--yellow); letter-spacing: .14em; }
+.step .c { font-size: 11px; font-weight: 800; color: var(--blue); letter-spacing: .14em; }
 .step h4 { font-size: 17px; margin: 8px 0 8px; }
-.step p { font-size: 13px; color: #A0A7C8; line-height: 1.55; }
+.step p { font-size: 13px; color: var(--slate); line-height: 1.55; }
 
 /* ── stats band ──────────────────────────────────────────── */
 .band { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; }
-.bd .v { font-size: clamp(34px, 3.4vw, 50px); font-weight: 800; color: var(--yellow);
+/* Blue on light by default; yellow when the band sits inside a dark section
+   (the datasheet sub-pages). */
+.bd .v { font-size: clamp(34px, 3.4vw, 50px); font-weight: 800; color: var(--blue);
   letter-spacing: -.04em; line-height: 1; }
-.bd .k { font-size: 13px; color: var(--mist); margin-top: 9px; line-height: 1.5; }
+.bd .k { font-size: 13px; color: var(--slate); margin-top: 9px; line-height: 1.5; }
+.dark .bd .v { color: var(--yellow); }
+.dark .bd .k { color: var(--mist); }
 
 /* ── contact ─────────────────────────────────────────────── */
 .form { display: grid; gap: 14px; }
@@ -527,28 +526,28 @@ a.sy .for { color: var(--blue); }
 .tilt-wrap { perspective: 900px; }
 
 /* ── comparison (restacks instead of scrolling) ──────────── */
-.cmp2 { display: grid; gap: 1px; background: var(--line-dark); border: 1px solid var(--line-dark);
+.cmp2 { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line);
   border-radius: var(--r); overflow: hidden; }
 .cmp2-head, .cmp2-row { display: grid; grid-template-columns: 1.1fr 1.2fr 1.4fr; gap: 1px;
-  background: var(--line-dark); }
-.cmp2-head > *, .cmp2-row > * { background: var(--blue-ink); padding: 13px 15px; }
-.cmp2-head { font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--mist);
+  background: var(--line); }
+.cmp2-head > *, .cmp2-row > * { background: var(--paper); padding: 13px 15px; }
+.cmp2-head { font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--slate);
   font-weight: 800; }
-.cmp2-head .us { color: var(--yellow); }
-.cmp2-k { font-weight: 700; color: #fff; font-size: 14px; display: flex; align-items: center; }
-.cmp2-old, .cmp2-new { font-size: 13.5px; color: #A8AEC8; display: flex; align-items: center; }
-.cmp2-new { color: var(--yellow); font-weight: 700; }
+.cmp2-head .us { color: var(--blue); }
+.cmp2-k { font-weight: 700; color: var(--ink); font-size: 14px; display: flex; align-items: center; }
+.cmp2-old, .cmp2-new { font-size: 13.5px; color: var(--slate); display: flex; align-items: center; }
+.cmp2-new { color: var(--blue); font-weight: 700; background: #F2F3FF !important; }
 .cmp2-old b, .cmp2-new b { display: none; } /* the label only appears once stacked */
 
 @media (max-width: 640px) {
   .cmp2-head { display: none; }
   .cmp2-row { grid-template-columns: 1fr; gap: 0; }
-  .cmp2-row > * { padding: 12px 15px; border-bottom: 1px solid var(--line-dark); }
-  .cmp2-k { background: rgba(255,255,255,.04); font-size: 13px; letter-spacing: .04em;
-    text-transform: uppercase; color: var(--yellow); }
+  .cmp2-row > * { padding: 12px 15px; border-bottom: 1px solid var(--line); }
+  .cmp2-k { background: var(--wash); font-size: 13px; letter-spacing: .04em;
+    text-transform: uppercase; color: var(--blue); }
   .cmp2-old b, .cmp2-new b { display: inline-block; min-width: 88px; font-size: 10.5px;
-    letter-spacing: .08em; text-transform: uppercase; color: var(--mist); font-weight: 800; }
-  .cmp2-new b { color: rgba(255,196,0,.7); }
+    letter-spacing: .08em; text-transform: uppercase; color: var(--slate); font-weight: 800; }
+  .cmp2-new b { color: var(--blue); }
   .cmp2-row > *:last-child { border-bottom: 0; }
 }
 
@@ -559,24 +558,3 @@ a.sy .for { color: var(--blue); }
   .ftr li a { min-height: 40px; }
   .ftr-sig { margin-top: 10px; }
 }
-
-/* ── scroll-driven foreground droplet ────────────────────
-   Sits above the page (z-index over content) but never intercepts input, so it
-   ornaments without ever blocking a tap or a link. */
-#scroll3d { position: fixed; z-index: 30; pointer-events: none;
-  right: clamp(-30px, 1vw, 40px); bottom: clamp(-20px, 4vh, 60px);
-  width: clamp(180px, 26vw, 340px); height: clamp(180px, 26vw, 340px);
-  filter: drop-shadow(0 24px 60px rgba(26, 34, 200, .45)); }
-#scroll3d canvas { width: 100%; height: 100%; display: block; }
-.s3d-label { position: absolute; left: 50%; bottom: 4px; transform: translateX(-50%);
-  white-space: nowrap; font-size: 9.5px; font-weight: 800; letter-spacing: .16em;
-  color: var(--yellow); background: rgba(7, 10, 61, .8); padding: 4px 10px; border-radius: 100px;
-  border: 1px solid rgba(255, 196, 0, .3); backdrop-filter: blur(6px); }
-
-/* Phones: smaller, tucked into the corner, label hidden so it never covers copy. */
-@media (max-width: 720px) {
-  #scroll3d { width: clamp(120px, 34vw, 160px); height: clamp(120px, 34vw, 160px);
-    right: -8px; bottom: 64px; opacity: .92; }
-  .s3d-label { display: none; }
-}
-@media (prefers-reduced-motion: reduce) { #scroll3d { display: none; } }

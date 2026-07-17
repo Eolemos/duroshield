@@ -70,10 +70,6 @@
      The 3D membrane stands in for the jobsite photo the company does not yet have,
      and shows the product doing the one thing that sells it: moving with the
      substrate without breaking. -->
-<div id="scroll3d" aria-hidden="true">
-  <canvas></canvas>
-  <div class="s3d-label"></div>
-</div>
 <main id="topo">
 <section class="hero">
   <!-- The hero photo is the argument: a Duroshield applicator spraying polyurea
@@ -129,11 +125,11 @@
 </section>
 
 <!-- ── OBRAS ─────────────────────────────────────────────── -->
-<section class="dark tight" id="obras">
+<section class="soft tight" id="obras">
   <div class="shell">
-    <div class="eyebrow on-dark rv">Obras executadas</div>
+    <div class="eyebrow rv">Obras executadas</div>
     <h2 class="rv" data-d="1">Isto é poliureia Duroshield<br>em obra real.</h2>
-    <p class="lead on-dark rv" data-d="2" style="margin-top:16px;margin-bottom:34px">
+    <p class="lead rv" data-d="2" style="margin-top:16px;margin-bottom:34px">
       Nenhuma imagem de banco. Todas as fotos abaixo são de projetos executados pela
       nossa equipe.</p>
     <div class="gal rv" data-d="2" id="gal"></div>
@@ -141,18 +137,18 @@
 </section>
 
 <!-- ── PROBLEMA ──────────────────────────────────────────── -->
-<section class="dark" id="problema">
+<section class="soft" id="problema">
   <div class="shell grid2">
     <div>
-      <div class="eyebrow on-dark rv">O custo real</div>
+      <div class="eyebrow rv">O custo real</div>
       <h2 class="rv" data-d="1">O problema nunca foi<br>a infiltração. Foi <em>a parada</em>.</h2>
-      <p class="lead on-dark rv" data-d="2" style="margin-top:20px">
+      <p class="lead rv" data-d="2" style="margin-top:20px">
         Impermeabilização tradicional cobra dois preços. O primeiro está no orçamento.
         O segundo não: demolir o revestimento velho, remover entulho, esperar cura,
         liberar a área. Dias de linha parada, produção remanejada, cronograma refeito.</p>
-      <p class="lead on-dark rv" data-d="3" style="margin-top:14px">
-        Para uma planta em operação, <strong style="color:#fff">esse segundo preço é o caro</strong>.
-        O sistema Duroshield é aplicado <strong style="color:#fff">sobre</strong> a estrutura
+      <p class="lead rv" data-d="3" style="margin-top:14px">
+        Para uma planta em operação, <strong style="color:var(--blue)">esse segundo preço é o caro</strong>.
+        O sistema Duroshield é aplicado <strong style="color:var(--blue)">sobre</strong> a estrutura
         existente. A membrana cura em minutos e a área é liberada no mesmo turno.</p>
     </div>
     <!-- Not a <table>: a 3-column grid that restacks into readable comparison
@@ -223,18 +219,18 @@
 </section>
 
 <!-- ── PORTFÓLIO ─────────────────────────────────────────── -->
-<section class="dark" id="portfolio">
+<section id="portfolio">
   <div class="shell">
-    <div class="eyebrow on-dark rv">Portfólio</div>
+    <div class="eyebrow rv">Portfólio</div>
     <h2 class="rv" data-d="1">Farmacêutica, bebida, química,<br>aeroporto, hospital, banco.</h2>
-    <p class="lead on-dark rv" data-d="2" style="margin-top:18px">
+    <p class="lead rv" data-d="2" style="margin-top:18px">
       Onde a operação não admite interrupção. Filtre por setor:</p>
 
     <div class="sectors rv" data-d="3" id="sectors" role="group" aria-label="Filtrar por setor"></div>
     <div class="wall" id="wall"></div>
 
     <h3 class="rv" style="margin:clamp(44px,6vw,72px) 0 8px">Casos de sucesso</h3>
-    <p class="lead on-dark rv" data-d="1" style="margin-bottom:24px">
+    <p class="lead rv" data-d="1" style="margin-bottom:24px">
       Projetos executados com a planta do cliente em operação.</p>
     <div class="cases rv" data-d="2" id="cases"></div>
   </div>
@@ -283,9 +279,9 @@
 </section>
 
 <!-- ── METODOLOGIA ───────────────────────────────────────── -->
-<section class="dark" id="metodologia">
+<section class="soft" id="metodologia">
   <div class="shell">
-    <div class="eyebrow on-dark rv">Metodologia</div>
+    <div class="eyebrow rv">Metodologia</div>
     <h2 class="rv" data-d="1">Como entramos numa planta em operação.</h2>
     <div class="steps rv" data-d="2" style="margin-top:40px">
       <div class="step"><div class="c">ETAPA 01</div><h4>Diagnóstico</h4>
@@ -404,6 +400,5 @@
 
 <script src="assets/js/site.js" defer></script>
 <script type="module" src="assets/js/membrane3d.js"></script>
-<script type="module" src="assets/js/scroll3d.js"></script>
 </body>
 </html>
