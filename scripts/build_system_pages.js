@@ -1,6 +1,6 @@
 // Generates one page per system datasheet, from the PDFs the old site hid behind
 // "Baixe aqui o catálogo" Google Drive links. Everything here is transcribed from
-// those PDFs — no figure is invented.
+// those PDFs, no figure is invented.
 
 const fs = require('fs');
 const path = require('path');
@@ -13,7 +13,7 @@ const SYSTEMS = [
     name: 'DUROSHIELD® SPR 092',
     kicker: 'Poliureia estrutural',
     claim: 'Onde não pode vazar.',
-    title: 'DUROSHIELD SPR 092 — Impermeabilização em Poliureia | Duroshield',
+    title: 'DUROSHIELD SPR 092: Impermeabilização em Poliureia | Duroshield',
     desc: 'Revestimento de poliureia 100% sólido, zero VOC, sem emendas, aplicado por spray '
         + 'sobre o substrato existente. Espessura de 1,5 mm (tráfego leve) a 3,0 mm (tráfego pesado).',
     photo: 'aplicacao-planta-operacao',
@@ -40,7 +40,7 @@ const SYSTEMS = [
       { k: 'Isolamento sonoro', v: 'As propriedades do revestimento elastomérico propiciam a redução de ruídos e vibrações.' },
     ],
     numbers: [
-      { v: '1,5 – 3,0', k: 'mm de espessura, conforme o tráfego' },
+      { v: '1,5 a 3,0', k: 'mm de espessura, conforme o tráfego' },
       { v: '100%', k: 'sólido · zero VOC' },
       { v: '0', k: 'emendas na membrana' },
     ],
@@ -51,7 +51,7 @@ const SYSTEMS = [
     name: 'DUROSHIELD® FLEX',
     kicker: 'Revestimento protetivo para coberturas',
     claim: 'Onde o sol destrói.',
-    title: 'DUROSHIELD FLEX — Revestimento Protetivo para Coberturas | Duroshield',
+    title: 'DUROSHIELD FLEX: Revestimento Protetivo para Coberturas | Duroshield',
     desc: 'Sistema elastomérico de alta espessura, à base de resinas acrílicas de última geração, '
         + 'isento de solventes. Alta refletividade, cura ao toque em 1 hora. Certificado GBC Brasil.',
     photo: 'bayer-cobertura',
@@ -71,7 +71,7 @@ const SYSTEMS = [
       'Coberturas em concreto', 'Supermercados', 'Shopping centers', 'Galpões em geral',
     ],
     highlights: [
-      { k: 'Refletividade', v: 'Excelente refletividade — protege o substrato da degradação por raios solares.' },
+      { k: 'Refletividade', v: 'Excelente refletividade, protege o substrato da degradação por raios solares.' },
       { k: 'Filme lavável', v: 'Antiaderente a fuligem e poeira: a cobertura mantém a refletividade ao longo do tempo.' },
       { k: 'Liberação rápida', v: 'Cura ao toque em 1 hora e cura final em 4 horas.' },
       { k: 'Selo verde', v: 'Sistema reconhecido pelo Green Building Council Brasil (GBC Brasil).' },
@@ -88,7 +88,7 @@ const SYSTEMS = [
     name: 'DUROSHIELD® COOL',
     kicker: 'Revestimento protetivo e isolante térmico',
     claim: 'Onde o calor custa caro.',
-    title: 'DUROSHIELD COOL — Isolante Térmico para Coberturas | Duroshield',
+    title: 'DUROSHIELD COOL: Isolante Térmico para Coberturas | Duroshield',
     desc: 'Reflete mais de 90% dos raios solares e reduz de 8 a 12 graus a temperatura interna. '
         + 'Medição por termografia: 58,9 °C sem aplicação contra 25,8 °C com aplicação.',
     photo: 'obra-detalhe',
@@ -116,7 +116,7 @@ const SYSTEMS = [
     ],
     numbers: [
       { v: '90%', k: 'dos raios solares refletidos' },
-      { v: '8–12°', k: 'de redução na temperatura interna' },
+      { v: '8 a 12°', k: 'de redução na temperatura interna' },
       { v: '33,1°', k: 'de diferença medida por termografia' },
     ],
     thermal: true,
@@ -134,7 +134,7 @@ const head = (s) => `<!doctype html>
 <link rel="canonical" href="https://duroshield.com.br/sistemas/${s.slug}.html">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="pt_BR">
-<meta property="og:title" content="${s.name} — ${s.claim}">
+<meta property="og:title" content="${s.name}: ${s.claim}">
 <meta property="og:description" content="${s.desc}">
 <meta property="og:image" content="https://duroshield.com.br/assets/img/obras/${s.photo}.webp">
 <meta name="twitter:card" content="summary_large_image">
@@ -321,7 +321,7 @@ function page(s) {
     <h2 class="rv">Sua planta não precisa parar<br>para ser protegida.</h2>
     <p class="lead on-dark rv" data-d="1" style="margin:18px auto 28px">
       Diagnóstico técnico sem custo. Um engenheiro avalia sua estrutura e apresenta
-      o sistema, o cronograma e o prazo de garantia — por escrito.</p>
+      o sistema, o cronograma e o prazo de garantia, por escrito.</p>
     <a class="btn btn-primary rv" data-d="2" href="../index.html#contato">Solicitar diagnóstico técnico</a>
     <p class="src-note rv" data-d="3">Conteúdo técnico desta página transcrito da ${s.source},
       publicada pela Duroshield Spray Systems.</p>

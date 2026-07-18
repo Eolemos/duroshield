@@ -1,4 +1,4 @@
-// Live 3D polyurea membrane — the product itself: a sprayed liquid that cures into
+// Live 3D polyurea membrane, the product itself: a sprayed liquid that cures into
 // one continuous, elastic, seamless sheet. Rendered as a rippling brand-coloured
 // surface so the "325% de alongamento, sem emendas" claim is felt, not just read.
 //
@@ -93,7 +93,7 @@ if (canvas && !reduced) {
       pointer.y = (e.clientY / innerHeight - 0.5) * 2;
     }, { passive: true });
 
-    // Pause when the section leaves the viewport — no wasted frames while the user
+    // Pause when the section leaves the viewport, no wasted frames while the user
     // reads the rest of the page.
     let live = true;
     new IntersectionObserver((es) => { live = es[0].isIntersecting; }, { threshold: 0.01 })

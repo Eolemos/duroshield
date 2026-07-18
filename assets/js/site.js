@@ -1,4 +1,4 @@
-/* Duroshield — site behaviour
+/* Duroshield, site behaviour
    No framework on purpose: the old site shipped 338 KB of HTML and 33 scripts.
    Speed is conversion for a buyer comparing suppliers on a plant floor. */
 
@@ -58,11 +58,11 @@
 
   /* ── obras gallery ───────────────────────────────────────
      Every frame is a real Duroshield job, recovered from the company's own media
-     library — none of it had ever been published. */
+     library, none of it had ever been published. */
   const P = 'assets/img/obras/';
   const GALLERY = [
     { f: 'heliponto-concluido', k: 'HELIPONTO · CONCLUÍDO',
-      c: 'Poliureia SPR092 com sinalização executada no próprio acabamento do sistema — sem pintura sobreposta.',
+      c: 'Poliureia SPR092 com sinalização executada no próprio acabamento do sistema, sem pintura sobreposta.',
       alt: 'Heliponto em cobertura revestido em poliureia azul com marcação de sinalização amarela, cidade ao fundo.' },
     { f: 'bayer-cobertura', k: 'BAYER · COBERTURA',
       c: 'Linha FLEX aplicada em telha metálica, com equipe própria e EPI completo.',
@@ -74,13 +74,13 @@
       c: 'Laje de estacionamento revestida e sinalizada, liberada para uso.',
       alt: 'Laje de estacionamento revestida em poliureia cinza com demarcação amarela e dezenas de carros estacionados.' },
     { f: 'heineken-bacia-3', k: 'HEINEKEN · DETALHE',
-      c: 'Tratamento de junta e canto vivo — onde a manta tradicional falha primeiro.',
+      c: 'Tratamento de junta e canto vivo, onde a manta tradicional falha primeiro.',
       alt: 'Detalhe de canto e junta de bacia de contenção revestida em poliureia.' },
     { f: 'cobertura-fuvest', k: 'COBERTURA INSTITUCIONAL',
       c: 'Retrofit de cobertura com sistema refletivo, sem interromper a operação do prédio.',
       alt: 'Cobertura de prédio institucional durante aplicação de revestimento Duroshield.' },
     { f: 'obra-detalhe', k: 'CALHA E TELHA · DETALHE',
-      c: 'Membrana contínua sobre telha metálica e calha — sem emenda no ponto onde a manta falha primeiro.',
+      c: 'Membrana contínua sobre telha metálica e calha, sem emenda no ponto onde a manta falha primeiro.',
       alt: 'Detalhe de calha e telha metálica revestidas com membrana contínua branca, sem emendas.' },
   ];
 
@@ -91,13 +91,13 @@
       photo: 'heineken-bacia-2',
       alt: 'Bacia de contenção da Heineken revestida em poliureia Duroshield.',
       title: 'Bacias de contenção de soda cáustica',
-      body: 'As bacias de contenção da unidade foram revestidas com a linha SPR092, aplicada sobre a superfície existente — sem interromper o envase.',
+      body: 'As bacias de contenção da unidade foram revestidas com a linha SPR092, aplicada sobre a superfície existente, sem interromper o envase.',
       metrics: [] },
     { logo: 'Bayer-300x243-1.png', client: 'Bayer', loc: 'SÃO JOSÉ DOS CAMPOS / SP',
       photo: 'bayer-cobertura',
       alt: 'Equipe Duroshield aplicando revestimento na cobertura da planta da Bayer.',
       title: 'Retrofit e proteção de cobertura',
-      body: 'Retrofit aliado à impermeabilização e proteção da cobertura da planta, com o Sistema DUROSHIELD® Flex — refletividade, flexibilidade e estanqueidade.',
+      body: 'Retrofit aliado à impermeabilização e proteção da cobertura da planta, com o Sistema DUROSHIELD® Flex, refletividade, flexibilidade e estanqueidade.',
       metrics: [] },
     { logo: 'royal.png', client: 'Royal Palm Plaza', loc: 'CAMPINAS / SP',
       photo: 'estacionamento-laje',
@@ -109,7 +109,7 @@
       photo: 'aplicacao-planta-operacao',
       alt: 'Aplicação de poliureia em torno de tubulação industrial em operação.',
       title: 'Membrana contínua em planta farmacêutica',
-      body: 'Poliureia formando membrana contínua, homogênea e sem emendas, totalmente aderida — evitando percolação de água entre a membrana e o substrato.',
+      body: 'Poliureia formando membrana contínua, homogênea e sem emendas, totalmente aderida, evitando percolação de água entre a membrana e o substrato.',
       metrics: [] },
     { logo: 'Unilever.png', client: 'Unilever', loc: 'FORNECEDORA HÁ 5+ ANOS',
       photo: 'hidrojateamento',
